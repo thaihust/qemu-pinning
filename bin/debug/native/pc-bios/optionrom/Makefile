@@ -1,0 +1,1 @@
+/qemu-pinning/pc-bios/optionrom/Makefile
