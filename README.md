@@ -116,7 +116,7 @@ The following instructions will build the binary on an Ubuntu 16.04 x86-64, with
     rm -rf bin
     mkdir -p bin/debug/native
     cd bin/debug/native
-    ../../../configure --target-list=x86_64-softmmu --enable-debug --enable-gtk --enable-spice --audio-drv-list=pa
+    ../../../configure --target-list=x86_64-softmmu --enable-gtk --enable-spice --audio-drv-list=pa
     make -j $THREADS_NUMBER
     cd x86_64-softmmu
     ./qemu-system-x86_64 --version           # test!
