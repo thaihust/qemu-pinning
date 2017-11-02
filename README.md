@@ -78,21 +78,19 @@ Such configuration will yield, in a Windows guest, 3 physical processors with 2 
 This can be verified in Windows guests, using the [Coreinfo tool](https://docs.microsoft.com/en-us/sysinternals/downloads/coreinfo).  
 Note that according to this this result, QEMU exposes the threads (vcpus) sequentially, and Windows interprets physical processors as contiguous blocks.
 
-The "-1 core" configuration can be be automated with an interesting exercise in scripting:
+The configuration above can be be automated with an interesting exercise in scripting:
 
-    # lscpu parse format: CPU,Core,Socket,Node
+    # Exclude the core 0, and cluster the threads, sorted by (socket,core)
+    CPUS_DATA=$(lscpu --all --parse=SOCKET,CORE,CPU | grep -vP '^(#|0,0)' | sort -t ',' -n)
     
-    # Exclude the core 0, and cluster the threads, sorted by (socket,node)
-    CPUS_DATA=$(lscpu --all --parse | grep -vP '^(#|\d,0,0,0)' | sort -t ',' -n -k 3,2)
-    
-    THREADS=$(echo $CPUS_DATA | wc -l)
-    CORES=$(echo $CPUS_DATA | cut -d ',' -f 2 | sort | uniq | wc -l)
-    SOCKETS=$(echo $CPUS_DATA | cut -d ',' -f 3 | sort | uniq | wc -l)
+    THREADS=$(echo "$CPUS_DATA" | wc -l)
+    CORES=$(echo "$CPUS_DATA" | cut -d ',' -f 2 | sort | uniq | wc -l)
+    SOCKETS=$(echo "$CPUS_DATA" | cut -d ',' -f 1 | sort | uniq | wc -l)
     
     QEMU_SMP="-smp $THREADS,cores=$CORES,threads=$(($THREADS / $CORES))"
-    
+
     vcpu=0; while read -a cpu_entry; do
-      affinity=$(echo $cpu_entry | cut -d ',' -f 1)
+      affinity=$(echo $cpu_entry | cut -d ',' -f 3)
       QEMU_AFFINITIES="$QEMU_AFFINITIES -vcpu vcpunum=$vcpu,affinity=$affinity"
       vcpu=$(($vcpu + 1))
     done <<< "$CPUS_DATA"
