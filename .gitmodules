@@ -1,42 +1,42 @@
 [submodule "roms/vgabios"]
-	path = roms/vgabios
-	url = git://git.qemu-project.org/vgabios.git/
+    path = roms/vgabios
+    url = https://github.com/qemu/vgabios.git/
 [submodule "roms/seabios"]
-	path = roms/seabios
-	url = git://git.qemu-project.org/seabios.git/
+    path = roms/seabios
+    url = https://github.com/qemu/seabios.git/
 [submodule "roms/SLOF"]
-	path = roms/SLOF
-	url = git://git.qemu-project.org/SLOF.git
+    path = roms/SLOF
+    url = https://github.com/qemu/SLOF.git
 [submodule "roms/ipxe"]
-	path = roms/ipxe
-	url = git://git.qemu-project.org/ipxe.git
+    path = roms/ipxe
+    url = https://github.com/qemu/ipxe.git
 [submodule "roms/openbios"]
-	path = roms/openbios
-	url = git://git.qemu-project.org/openbios.git
+    path = roms/openbios
+    url = https://github.com/qemu/openbios.git
 [submodule "roms/openhackware"]
-	path = roms/openhackware
-	url = git://git.qemu-project.org/openhackware.git
+    path = roms/openhackware
+    url = https://github.com/qemu/openhackware.git
 [submodule "roms/qemu-palcode"]
-	path = roms/qemu-palcode
-	url = git://github.com/rth7680/qemu-palcode.git
+    path = roms/qemu-palcode
+    url = https://github.com/rth7680/qemu-palcode.git
 [submodule "roms/sgabios"]
-	path = roms/sgabios
-	url = git://git.qemu-project.org/sgabios.git
+    path = roms/sgabios
+    url = https://github.com/qemu/sgabios.git
 [submodule "dtc"]
-	path = dtc
-	url = git://git.qemu-project.org/dtc.git
+    path = dtc
+    url = https://github.com/qemu/dtc.git
 [submodule "roms/u-boot"]
-	path = roms/u-boot
-	url = git://git.qemu-project.org/u-boot.git
+    path = roms/u-boot
+    url = https://github.com/qemu/u-boot.git
 [submodule "roms/skiboot"]
-	path = roms/skiboot
-	url = git://git.qemu.org/skiboot.git
+    path = roms/skiboot
+    url = https://github.com/qemu/skiboot.git
 [submodule "roms/QemuMacDrivers"]
-	path = roms/QemuMacDrivers
-	url = git://git.qemu.org/QemuMacDrivers.git
+    path = roms/QemuMacDrivers
+    url = https://github.com/qemu/QemuMacDrivers.git
 [submodule "ui/keycodemapdb"]
-	path = ui/keycodemapdb
-	url = git://git.qemu.org/keycodemapdb.git
+    path = ui/keycodemapdb
+    url = https://github.com/qemu/keycodemapdb.git
 [submodule "capstone"]
-	path = capstone
-	url = git://git.qemu.org/capstone.git
+    path = capstone
+    url = https://github.com/qemu/capstone.git
